@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive 3D Dashboard for Country Delight Dairy Sales & Inventory data with Three.js visualizations and glassmorphism design.">
+  <title>Country Delight — Dairy Sales & Inventory Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div class="loading-overlay" id="loader">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Loading Dashboard…</div>
+</div>
+
+<!-- Narrator Floating Panel -->
+<div class="narrator-panel" id="narrator-panel">
+  <button class="narrator-play-btn" id="narrator-play-btn" title="Play AI business analysis narration" onclick="NarratorModule.play(DATA)">
+    <div class="narrator-pulse" id="narrator-pulse"></div>
+    <span id="narrator-play-icon">▶</span>
+  </button>
+  <div class="narrator-info">
+    <div class="narrator-status" id="narrator-status">🎙️ Play Analysis</div>
+    <div class="narrator-segment" id="narrator-segment-label"></div>
+    <div class="narrator-progress">
+      <div class="narrator-progress__fill" id="narrator-progress-fill"></div>
+    </div>
+  </div>
+  <div class="narrator-controls">
+    <button class="narrator-skip-btn" title="Previous section" onclick="NarratorModule.skip(-1)">⏮</button>
+    <button class="narrator-skip-btn" title="Next section" onclick="NarratorModule.skip(1)">⏭</button>
+    <button class="narrator-skip-btn" title="Stop" onclick="NarratorModule.stop()">⏹</button>
+  </div>
+</div>
+
+<!-- 3D Tooltip -->
+<div id="tooltip3d"></div>
+
+<div class="container">
+
+  <!-- ═══════════════════ HEADER ═══════════════════ -->
+  <header class="header animate-in" id="header">
+    <div class="header__brand">
+      <div class="header__icon">🥛</div>
+      <h1 class="header__title">Country Delight</h1>
+    </div>
+    <p class="header__subtitle">Dairy Sales & Inventory Analytics Dashboard — 122K+ Records</p>
+    <div class="header__line"></div>
+  </header>
+
+  <!-- ═══════════════════ KPI CARDS ═══════════════════ -->
+  <div class="kpi-grid animate-in" id="kpi-section">
+    <div class="kpi-card">
+      <div class="kpi-card__icon">💰</div>
+      <div class="kpi-card__label">Total Revenue</div>
+      <div class="kpi-card__value" id="kpi-revenue">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__icon">📦</div>
+      <div class="kpi-card__label">Units Sold</div>
+      <div class="kpi-card__value" id="kpi-sold">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__icon">🧀</div>
+      <div class="kpi-card__label">Products</div>
+      <div class="kpi-card__value" id="kpi-products">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__icon">🏷️</div>
+      <div class="kpi-card__label">Brands</div>
+      <div class="kpi-card__value" id="kpi-brands">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__icon">📍</div>
+      <div class="kpi-card__label">States</div>
+      <div class="kpi-card__value" id="kpi-states">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card__icon">⚠️</div>
+      <div class="kpi-card__label">Stock Alerts</div>
+      <div class="kpi-card__value" id="kpi-alerts">—</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ 3D REVENUE BY STATE ═══════════════════ -->
+  <section class="section animate-in" id="section-3d">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(0,212,255,0.12)">📊</div>
+      <h2 class="section__title">Revenue by State — 3D View</h2>
+    </div>
+    <div class="panel">
+      <div class="panel__title">🖱️ Drag to rotate · Scroll to zoom · Hover bars for details</div>
+      <div class="three-canvas-wrap" id="revenue-3d"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PRODUCT + BRAND ═══════════════════ -->
+  <section class="section animate-in" id="section-products">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(123,47,247,0.12)">🧈</div>
+      <h2 class="section__title">Product & Brand Performance</h2>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel__title">🍩 Revenue by Product</div>
+        <div class="chart-wrap"><canvas id="chart-product-donut"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel__title">🏆 Top Brands by Revenue</div>
+        <div class="chart-wrap"><canvas id="chart-brand-bar"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CHANNEL + TREND ═══════════════════ -->
+  <section class="section animate-in" id="section-sales">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(255,45,85,0.12)">📈</div>
+      <h2 class="section__title">Sales Channels & Revenue Trend</h2>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel__title">🛒 Revenue by Sales Channel</div>
+        <div class="chart-wrap"><canvas id="chart-channel-pie"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel__title">📅 Monthly Revenue Trend (2019–2022)</div>
+        <div class="chart-wrap"><canvas id="chart-trend-line"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ YEARLY + STORAGE ═══════════════════ -->
+  <section class="section animate-in" id="section-extra">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(0,230,118,0.12)">📆</div>
+      <h2 class="section__title">Yearly Breakdown & Storage Analysis</h2>
+    </div>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="panel__title">📊 Revenue by Year</div>
+        <div class="chart-wrap"><canvas id="chart-yearly"></canvas></div>
+      </div>
+      <div class="panel">
+        <div class="panel__title">🧊 Storage Condition Distribution</div>
+        <div class="chart-wrap"><canvas id="chart-storage"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ INVENTORY HEALTH ═══════════════════ -->
+  <section class="section animate-in" id="section-inventory">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(255,159,67,0.12)">🔔</div>
+      <h2 class="section__title">Inventory Health Monitor</h2>
+    </div>
+    <div class="grid-2">
+      <!-- Gauge -->
+      <div class="panel">
+        <div class="panel__title">🎯 Stock Health Gauge</div>
+        <div class="gauge-container">
+          <svg id="gauge-svg" class="gauge-svg" viewBox="0 0 200 120">
+            <path id="gauge-arc-bg" d="M 20 100 A 80 80 0 0 1 180 100"
+              fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14" stroke-linecap="round"/>
+            <path id="gauge-arc" d="M 20 100 A 80 80 0 0 1 180 100"
+              fill="none" stroke="url(#gaugeGradient)" stroke-width="14" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#00e676"/>
+                <stop offset="50%" style="stop-color:#ff9f43"/>
+                <stop offset="100%" style="stop-color:#ff2d55"/>
+              </linearGradient>
+            </defs>
+            <text id="gauge-label" x="100" y="90" text-anchor="middle"
+              fill="#eef2ff" font-size="22" font-weight="700" font-family="Inter">0%</text>
+            <text x="100" y="110" text-anchor="middle"
+              fill="#5a6380" font-size="9" font-family="Inter">Below Threshold</text>
+          </svg>
+          <div class="gauge-stats">
+            <div class="gauge-stat">
+              <div class="gauge-stat__val" style="color:#ff2d55" id="gauge-below-val">0</div>
+              <div class="gauge-stat__label">Below Threshold</div>
+            </div>
+            <div class="gauge-stat">
+              <div class="gauge-stat__val" style="color:#ff9f43" id="gauge-oos-val">0</div>
+              <div class="gauge-stat__label">Out of Stock</div>
+            </div>
+            <div class="gauge-stat">
+              <div class="gauge-stat__val" style="color:#00e676" id="gauge-pct-val">0%</div>
+              <div class="gauge-stat__label">Alert Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Table -->
+      <div class="panel" style="overflow-x:auto">
+        <div class="panel__title">🚨 Top Critical Stock Alerts</div>
+        <table class="inv-table">
+          <thead>
+            <tr>
+              <th>Product</th><th>Brand</th><th>Location</th>
+              <th>Stock</th><th>Threshold</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="inv-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ GEOGRAPHIC HEATMAP ═══════════════════ -->
+  <section class="section animate-in" id="section-geo">
+    <div class="section__header">
+      <div class="section__icon" style="background:rgba(79,140,255,0.12)">🗺️</div>
+      <h2 class="section__title">Geographic Revenue Distribution</h2>
+    </div>
+    <div class="panel">
+      <div class="panel__title">📍 Customer Location Revenue Heatmap</div>
+      <div class="heatmap-grid" id="heatmap-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    Country Delight Dairy Analytics Dashboard · Data: 122,983 records (2019–2022) · Built with Three.js & Chart.js<br>
+    <span class="author-badge">📊 Data Analysis Project by <a href="#" id="author-link">Your Name</a></span>
+  </footer>
+
+</div>
+
+<script src="narrator.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

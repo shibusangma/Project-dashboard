@@ -1,0 +1,763 @@
+{
+  "summary": {
+    "totalRows": 122983,
+    "totalRevenue": 1685030356,
+    "totalQuantitySold": 30689757,
+    "totalBrands": 11,
+    "totalProducts": 10,
+    "totalStates": 15,
+    "avgLandArea": 505,
+    "avgCows": 55,
+    "outOfStockCount": 8663,
+    "belowThresholdCount": 26026,
+    "belowThresholdPct": 21.16
+  },
+  "revenueByState": [
+    {
+      "name": "Delhi",
+      "value": 202552746
+    },
+    {
+      "name": "Chandigarh",
+      "value": 201148064
+    },
+    {
+      "name": "Gujarat",
+      "value": 107751950
+    },
+    {
+      "name": "Karnataka",
+      "value": 107343130
+    },
+    {
+      "name": "Telangana",
+      "value": 106978454
+    },
+    {
+      "name": "Uttar Pradesh",
+      "value": 102352396
+    },
+    {
+      "name": "Madhya Pradesh",
+      "value": 101119407
+    },
+    {
+      "name": "Maharashtra",
+      "value": 100054523
+    },
+    {
+      "name": "Haryana",
+      "value": 99535678
+    },
+    {
+      "name": "Kerala",
+      "value": 96781084
+    },
+    {
+      "name": "Bihar",
+      "value": 95329787
+    },
+    {
+      "name": "Jharkhand",
+      "value": 94470502
+    },
+    {
+      "name": "West Bengal",
+      "value": 92830773
+    },
+    {
+      "name": "Rajasthan",
+      "value": 89101799
+    },
+    {
+      "name": "Tamil Nadu",
+      "value": 87680064
+    }
+  ],
+  "revenueByProduct": [
+    {
+      "name": "Curd",
+      "value": 185105851
+    },
+    {
+      "name": "Lassi",
+      "value": 180380329
+    },
+    {
+      "name": "Butter",
+      "value": 175957269
+    },
+    {
+      "name": "Paneer",
+      "value": 171890653
+    },
+    {
+      "name": "Buttermilk",
+      "value": 171254095
+    },
+    {
+      "name": "Yogurt",
+      "value": 167395619
+    },
+    {
+      "name": "Milk",
+      "value": 160105071
+    },
+    {
+      "name": "Ghee",
+      "value": 159104238
+    },
+    {
+      "name": "Ice Cream",
+      "value": 158616266
+    },
+    {
+      "name": "Cheese",
+      "value": 155220963
+    }
+  ],
+  "revenueByBrand": [
+    {
+      "name": "Amul",
+      "value": 396245146
+    },
+    {
+      "name": "Mother Dairy",
+      "value": 388022970
+    },
+    {
+      "name": "Raj",
+      "value": 269292978
+    },
+    {
+      "name": "Sudha",
+      "value": 256013558
+    },
+    {
+      "name": "Dodla Dairy",
+      "value": 92845445
+    },
+    {
+      "name": "Palle2patnam",
+      "value": 67849161
+    },
+    {
+      "name": "Parag Milk Foods",
+      "value": 63500075
+    },
+    {
+      "name": "Dynamix Dairies",
+      "value": 41517680
+    },
+    {
+      "name": "Warana",
+      "value": 39066705
+    },
+    {
+      "name": "Passion Cheese",
+      "value": 36296589
+    },
+    {
+      "name": "Britannia Industries",
+      "value": 34380049
+    }
+  ],
+  "revenueByChannel": [
+    {
+      "name": "Retail",
+      "value": 578842442
+    },
+    {
+      "name": "Wholesale",
+      "value": 573127048
+    },
+    {
+      "name": "Online",
+      "value": 533060865
+    }
+  ],
+  "revenueByYear": [
+    {
+      "name": "2020",
+      "value": 437540646
+    },
+    {
+      "name": "2019",
+      "value": 428380864
+    },
+    {
+      "name": "2021",
+      "value": 412075900
+    },
+    {
+      "name": "2022",
+      "value": 407032946
+    }
+  ],
+  "customerLocationRevenue": [
+    {
+      "name": "Delhi",
+      "value": 197159764
+    },
+    {
+      "name": "Chandigarh",
+      "value": 192026571
+    },
+    {
+      "name": "Uttar Pradesh",
+      "value": 109346795
+    },
+    {
+      "name": "Maharashtra",
+      "value": 104660306
+    },
+    {
+      "name": "Bihar",
+      "value": 104604907
+    },
+    {
+      "name": "West Bengal",
+      "value": 103508145
+    },
+    {
+      "name": "Madhya Pradesh",
+      "value": 102252251
+    },
+    {
+      "name": "Tamil Nadu",
+      "value": 101309442
+    },
+    {
+      "name": "Telangana",
+      "value": 101074947
+    },
+    {
+      "name": "Gujarat",
+      "value": 98860195
+    },
+    {
+      "name": "Karnataka",
+      "value": 97930609
+    },
+    {
+      "name": "Jharkhand",
+      "value": 97509224
+    },
+    {
+      "name": "Kerala",
+      "value": 95708054
+    },
+    {
+      "name": "Rajasthan",
+      "value": 90602247
+    },
+    {
+      "name": "Haryana",
+      "value": 88476898
+    }
+  ],
+  "soldByProduct": [
+    {
+      "name": "Curd",
+      "value": 3338498
+    },
+    {
+      "name": "Lassi",
+      "value": 3223737
+    },
+    {
+      "name": "Buttermilk",
+      "value": 3141197
+    },
+    {
+      "name": "Paneer",
+      "value": 3116927
+    },
+    {
+      "name": "Yogurt",
+      "value": 3088659
+    },
+    {
+      "name": "Butter",
+      "value": 3077735
+    },
+    {
+      "name": "Ice Cream",
+      "value": 3036278
+    },
+    {
+      "name": "Milk",
+      "value": 2988311
+    },
+    {
+      "name": "Cheese",
+      "value": 2868993
+    },
+    {
+      "name": "Ghee",
+      "value": 2809421
+    }
+  ],
+  "soldByState": [
+    {
+      "name": "Delhi",
+      "value": 3607315
+    },
+    {
+      "name": "Chandigarh",
+      "value": 3494888
+    },
+    {
+      "name": "Uttar Pradesh",
+      "value": 2022597
+    },
+    {
+      "name": "Maharashtra",
+      "value": 1919780
+    },
+    {
+      "name": "Bihar",
+      "value": 1899262
+    },
+    {
+      "name": "West Bengal",
+      "value": 1878896
+    },
+    {
+      "name": "Tamil Nadu",
+      "value": 1878160
+    },
+    {
+      "name": "Telangana",
+      "value": 1847693
+    },
+    {
+      "name": "Madhya Pradesh",
+      "value": 1831987
+    },
+    {
+      "name": "Gujarat",
+      "value": 1807697
+    },
+    {
+      "name": "Karnataka",
+      "value": 1781278
+    },
+    {
+      "name": "Jharkhand",
+      "value": 1748399
+    },
+    {
+      "name": "Kerala",
+      "value": 1735387
+    },
+    {
+      "name": "Rajasthan",
+      "value": 1641738
+    },
+    {
+      "name": "Haryana",
+      "value": 1594682
+    }
+  ],
+  "monthlyTrend": [
+    {
+      "month": "2019-01",
+      "revenue": 56949198
+    },
+    {
+      "month": "2019-02",
+      "revenue": 23934638
+    },
+    {
+      "month": "2019-03",
+      "revenue": 29684631
+    },
+    {
+      "month": "2019-04",
+      "revenue": 30357617
+    },
+    {
+      "month": "2019-05",
+      "revenue": 32622513
+    },
+    {
+      "month": "2019-06",
+      "revenue": 35189850
+    },
+    {
+      "month": "2019-07",
+      "revenue": 37501092
+    },
+    {
+      "month": "2019-08",
+      "revenue": 35560328
+    },
+    {
+      "month": "2019-09",
+      "revenue": 36289026
+    },
+    {
+      "month": "2019-10",
+      "revenue": 37580872
+    },
+    {
+      "month": "2019-11",
+      "revenue": 35864970
+    },
+    {
+      "month": "2019-12",
+      "revenue": 36846129
+    },
+    {
+      "month": "2020-01",
+      "revenue": 36771245
+    },
+    {
+      "month": "2020-02",
+      "revenue": 34261646
+    },
+    {
+      "month": "2020-03",
+      "revenue": 39559694
+    },
+    {
+      "month": "2020-04",
+      "revenue": 36152351
+    },
+    {
+      "month": "2020-05",
+      "revenue": 36310870
+    },
+    {
+      "month": "2020-06",
+      "revenue": 37626076
+    },
+    {
+      "month": "2020-07",
+      "revenue": 38585073
+    },
+    {
+      "month": "2020-08",
+      "revenue": 37918528
+    },
+    {
+      "month": "2020-09",
+      "revenue": 36324306
+    },
+    {
+      "month": "2020-10",
+      "revenue": 35313962
+    },
+    {
+      "month": "2020-11",
+      "revenue": 34052170
+    },
+    {
+      "month": "2020-12",
+      "revenue": 34664725
+    },
+    {
+      "month": "2021-01",
+      "revenue": 35887329
+    },
+    {
+      "month": "2021-02",
+      "revenue": 30957849
+    },
+    {
+      "month": "2021-03",
+      "revenue": 35006889
+    },
+    {
+      "month": "2021-04",
+      "revenue": 33592844
+    },
+    {
+      "month": "2021-05",
+      "revenue": 35156402
+    },
+    {
+      "month": "2021-06",
+      "revenue": 32818838
+    },
+    {
+      "month": "2021-07",
+      "revenue": 34314266
+    },
+    {
+      "month": "2021-08",
+      "revenue": 36101344
+    },
+    {
+      "month": "2021-09",
+      "revenue": 34098078
+    },
+    {
+      "month": "2021-10",
+      "revenue": 35564718
+    },
+    {
+      "month": "2021-11",
+      "revenue": 33285744
+    },
+    {
+      "month": "2021-12",
+      "revenue": 35291599
+    },
+    {
+      "month": "2022-01",
+      "revenue": 37563055
+    },
+    {
+      "month": "2022-02",
+      "revenue": 32756092
+    },
+    {
+      "month": "2022-03",
+      "revenue": 35075772
+    },
+    {
+      "month": "2022-04",
+      "revenue": 32326162
+    },
+    {
+      "month": "2022-05",
+      "revenue": 34034665
+    },
+    {
+      "month": "2022-06",
+      "revenue": 30751399
+    },
+    {
+      "month": "2022-07",
+      "revenue": 34086600
+    },
+    {
+      "month": "2022-08",
+      "revenue": 31669872
+    },
+    {
+      "month": "2022-09",
+      "revenue": 28627402
+    },
+    {
+      "month": "2022-10",
+      "revenue": 28475578
+    },
+    {
+      "month": "2022-11",
+      "revenue": 23353089
+    },
+    {
+      "month": "2022-12",
+      "revenue": 58313261
+    }
+  ],
+  "farmSizeCounts": {
+    "Small": 40334,
+    "Medium": 41475,
+    "Large": 41174
+  },
+  "storageConditionCounts": {
+    "Refrigerated": 69579,
+    "Polythene Packet": 6134,
+    "Frozen": 29568,
+    "Ambient": 11572,
+    "Tetra Pack": 6130
+  },
+  "avgShelfLife": {
+    "Cheese": 27,
+    "Curd": 30,
+    "Butter": 41,
+    "Ghee": 35,
+    "Milk": 23,
+    "Paneer": 31,
+    "Lassi": 34,
+    "Buttermilk": 28,
+    "Ice Cream": 20,
+    "Yogurt": 25
+  },
+  "inventoryAlerts": [
+    {
+      "product": "Cheese",
+      "brand": "Amul",
+      "location": "Gujarat",
+      "stock": 0,
+      "threshold": 99.99,
+      "reorder": 90.08,
+      "deficit": 99.99
+    },
+    {
+      "product": "Paneer",
+      "brand": "Passion Cheese",
+      "location": "Delhi",
+      "stock": 0,
+      "threshold": 99.99,
+      "reorder": 89.58,
+      "deficit": 99.99
+    },
+    {
+      "product": "Milk",
+      "brand": "Amul",
+      "location": "Karnataka",
+      "stock": 0,
+      "threshold": 99.62,
+      "reorder": 50.29,
+      "deficit": 99.62
+    },
+    {
+      "product": "Cheese",
+      "brand": "Sudha",
+      "location": "Delhi",
+      "stock": 0.16,
+      "threshold": 99.51,
+      "reorder": 89.73,
+      "deficit": 99.35
+    },
+    {
+      "product": "Cheese",
+      "brand": "Dodla Dairy",
+      "location": "Jharkhand",
+      "stock": 0,
+      "threshold": 98.95,
+      "reorder": 181.78,
+      "deficit": 98.95
+    },
+    {
+      "product": "Yogurt",
+      "brand": "Sudha",
+      "location": "Bihar",
+      "stock": 0,
+      "threshold": 98.27,
+      "reorder": 121.39,
+      "deficit": 98.27
+    },
+    {
+      "product": "Cheese",
+      "brand": "Amul",
+      "location": "Delhi",
+      "stock": 0,
+      "threshold": 97.48,
+      "reorder": 87.12,
+      "deficit": 97.48
+    },
+    {
+      "product": "Curd",
+      "brand": "Mother Dairy",
+      "location": "Bihar",
+      "stock": 0,
+      "threshold": 96.56,
+      "reorder": 74.14,
+      "deficit": 96.56
+    },
+    {
+      "product": "Butter",
+      "brand": "Mother Dairy",
+      "location": "Telangana",
+      "stock": 0,
+      "threshold": 96.52,
+      "reorder": 120.52,
+      "deficit": 96.52
+    },
+    {
+      "product": "Cheese",
+      "brand": "Mother Dairy",
+      "location": "Delhi",
+      "stock": 0,
+      "threshold": 96.29,
+      "reorder": 101.61,
+      "deficit": 96.29
+    },
+    {
+      "product": "Ice Cream",
+      "brand": "Parag Milk Foods",
+      "location": "Bihar",
+      "stock": 0,
+      "threshold": 96.23,
+      "reorder": 67.3,
+      "deficit": 96.23
+    },
+    {
+      "product": "Curd",
+      "brand": "Mother Dairy",
+      "location": "Delhi",
+      "stock": 0,
+      "threshold": 96.02,
+      "reorder": 147.41,
+      "deficit": 96.02
+    },
+    {
+      "product": "Ghee",
+      "brand": "Mother Dairy",
+      "location": "Kerala",
+      "stock": 4.71,
+      "threshold": 99.99,
+      "reorder": 155.4,
+      "deficit": 95.28
+    },
+    {
+      "product": "Ice Cream",
+      "brand": "Amul",
+      "location": "West Bengal",
+      "stock": 0,
+      "threshold": 95.09,
+      "reorder": 65.93,
+      "deficit": 95.09
+    },
+    {
+      "product": "Milk",
+      "brand": "Dodla Dairy",
+      "location": "Tamil Nadu",
+      "stock": 0,
+      "threshold": 95.05,
+      "reorder": 52.86,
+      "deficit": 95.05
+    },
+    {
+      "product": "Butter",
+      "brand": "Sudha",
+      "location": "Bihar",
+      "stock": 0,
+      "threshold": 94.92,
+      "reorder": 79.59,
+      "deficit": 94.92
+    },
+    {
+      "product": "Curd",
+      "brand": "Sudha",
+      "location": "Chandigarh",
+      "stock": 1.28,
+      "threshold": 95.07,
+      "reorder": 46.43,
+      "deficit": 93.79
+    },
+    {
+      "product": "Ice Cream",
+      "brand": "Sudha",
+      "location": "Chandigarh",
+      "stock": 6.2,
+      "threshold": 99.99,
+      "reorder": 149.44,
+      "deficit": 93.79
+    },
+    {
+      "product": "Butter",
+      "brand": "Raj",
+      "location": "Delhi",
+      "stock": 5.89,
+      "threshold": 98.96,
+      "reorder": 175.82,
+      "deficit": 93.07
+    },
+    {
+      "product": "Milk",
+      "brand": "Warana",
+      "location": "Telangana",
+      "stock": 6.79,
+      "threshold": 99.57,
+      "reorder": 108.11,
+      "deficit": 92.78
+    }
+  ]
+}
